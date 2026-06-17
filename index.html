@@ -2,226 +2,415 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CrossFit Volt</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    body{
-      background:#050505;
-      color:white;
-      line-height:1.6;
+    body {
+      background: #030303;
+      color: white;
+      line-height: 1.6;
     }
 
-    header{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:40px;
+    header {
+      min-height: 100vh;
+      padding: 30px 8%;
       background:
-      radial-gradient(circle at top left,#008cff55,transparent 30%),
-      radial-gradient(circle at top right,#ffc10755,transparent 30%);
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.9)),
+        radial-gradient(circle at 20% 30%, rgba(0,140,255,.45), transparent 30%),
+        radial-gradient(circle at 80% 40%, rgba(255,193,7,.35), transparent 30%),
+        #030303;
     }
 
-    h1{
-      font-size:5rem;
-      text-transform:uppercase;
-      font-weight:900;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
     }
 
-    h1 span{
-      color:#ffc107;
+    .nav-logo {
+      width: 150px;
     }
 
-    .subtitle{
-      margin-top:20px;
-      max-width:700px;
-      color:#d1d5db;
-      font-size:1.2rem;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+      font-size: 14px;
     }
 
-    .btn{
-      margin-top:35px;
-      display:inline-block;
-      background:#ffc107;
-      color:black;
-      padding:15px 30px;
-      border-radius:15px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.3s;
+    .btn {
+      background: #ffc107;
+      color: black;
+      padding: 14px 25px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      display: inline-block;
     }
 
-    .btn:hover{
-      transform:scale(1.05);
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
     }
 
-    section{
-      padding:80px 10%;
+    .hero-logo {
+      width: 100%;
+      max-width: 570px;
+      filter: drop-shadow(0 0 35px rgba(0,140,255,.6));
     }
 
-    h2{
-      font-size:3rem;
-      margin-bottom:30px;
+    h1 {
+      font-size: 4.8rem;
+      line-height: 1;
+      text-transform: uppercase;
+      font-weight: 900;
     }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      margin-top:40px;
+    h1 span {
+      color: #ffc107;
     }
 
-    .card{
-      background:#111;
-      padding:30px;
-      border-radius:25px;
-      border:1px solid #222;
+    .hero p {
+      margin: 25px 0;
+      color: #ddd;
+      font-size: 1.2rem;
+      max-width: 560px;
     }
 
-    .card h3{
-      margin-bottom:15px;
-      color:#ffc107;
+    .stats {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid #222;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0,0,0,.65);
     }
 
-    .offers{
-      background:#0b0b0b;
+    .stat {
+      padding: 25px;
+      border-right: 1px solid #222;
     }
 
-    .offer{
-      background:#111;
-      padding:30px;
-      border-radius:25px;
-      text-align:center;
-      border:1px solid #222;
+    .stat:last-child {
+      border-right: none;
     }
 
-    .price{
-      font-size:2rem;
-      font-weight:bold;
-      margin:15px 0;
-      color:#008cff;
+    .stat strong {
+      color: #ffc107;
+      font-size: 1.5rem;
+      display: block;
     }
 
-    footer{
-      padding:50px;
-      text-align:center;
-      border-top:1px solid #222;
-      color:#999;
+    section {
+      padding: 90px 8%;
+    }
+
+    .center {
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 3.2rem;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .blue {
+      color: #008cff;
+    }
+
+    .gold {
+      color: #ffc107;
+    }
+
+    .cards {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.95));
+      border: 1px solid #222;
+      border-radius: 22px;
+      padding: 30px;
+      min-height: 260px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ffc107;
+    }
+
+    .card h3 {
+      color: #ffc107;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: #ccc;
+    }
+
+    .offers {
+      background: #080808;
+    }
+
+    .offer {
+      text-align: center;
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 24px;
+      padding: 35px 25px;
+    }
+
+    .offer.featured {
+      border-color: #ffc107;
+      box-shadow: 0 0 35px rgba(255,193,7,.18);
+    }
+
+    .price {
+      font-size: 2.5rem;
+      color: #008cff;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    .cta {
+      background:
+        linear-gradient(90deg, rgba(0,140,255,.35), rgba(255,193,7,.35)),
+        #050505;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .contact-box {
+      background: #0b0b0b;
+      border: 1px solid #222;
+      border-radius: 25px;
+      padding: 40px;
+    }
+
+    footer {
+      padding: 40px 8%;
+      text-align: center;
+      color: #aaa;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>CrossFit <span>Volt</span></h1>
+<header id="accueil">
+  <nav>
+    <img src="logo.png" alt="Logo CrossFit Volt" class="nav-logo">
 
-  <p class="subtitle">
-    La nouvelle référence CrossFit & Hyrox à Bourg-en-Bresse.
-    Performance, santé, récupération et communauté dans un espace premium de 708 m².
-  </p>
+    <div>
+      <a href="#crossfit">C’est quoi ?</a>
+      <a href="#services">Services</a>
+      <a href="#offres">Abonnements</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn">Essai gratuit</a>
+    </div>
+  </nav>
 
-  <a href="#offres" class="btn">Voir les abonnements</a>
+  <div class="hero">
+    <div>
+      <img src="logo.png" alt="CrossFit Volt" class="hero-logo">
+    </div>
+
+    <div>
+      <h1>Plus qu’une salle.<br><span>Une énergie.</span></h1>
+      <p>
+        CrossFit Volt, c’est la performance, la santé et la communauté réunies
+        dans un espace premium de 708 m² à Bourg-en-Bresse.
+      </p>
+      <a href="#offres" class="btn">Découvrir la box</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>708 m²</strong>
+      d’espace premium
+    </div>
+    <div class="stat">
+      <strong>CrossFit</strong>
+      affilié
+    </div>
+    <div class="stat">
+      <strong>Hyrox</strong>
+      préparation dédiée
+    </div>
+    <div class="stat">
+      <strong>Communauté</strong>
+      soudée & engagée
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>C’est quoi le CrossFit ?</h2>
-
-  <p>
-    Le CrossFit combine force, cardio, endurance et mobilité à travers des entraînements variés et adaptés à tous les niveaux.
-    Chaque séance est encadrée par des coachs qualifiés pour progresser efficacement et en sécurité.
-    Oui, même les humains qui disent “je suis pas sportif” avant de finir accros aux WOD.
-  </p>
+<section id="crossfit">
+  <div class="center">
+    <p class="gold">Bienvenue chez CrossFit Volt</p>
+    <h2>Dépasse tes limites</h2>
+    <p>
+      Le CrossFit combine force, endurance, cardio, gymnastique et haltérophilie
+      dans des séances variées, encadrées et adaptées à tous les niveaux.
+      Débutant ou athlète confirmé, chacun progresse à son rythme.
+    </p>
+  </div>
 </section>
 
-<section>
-  <h2>Nos services</h2>
+<section id="services">
+  <div class="center">
+    <p class="blue">Nos services</p>
+    <h2>Une offre complète</h2>
+  </div>
 
   <div class="cards">
-
     <div class="card">
       <h3>CrossFit</h3>
-      <p>WOD quotidiens, force, gymnastique et progression complète.</p>
+      <p>Des WOD variés et adaptés à tous les niveaux pour développer force, cardio, mobilité et mental.</p>
     </div>
 
     <div class="card">
       <h3>Hyrox</h3>
-      <p>Préparation endurance et performance avec format compétition.</p>
+      <p>Préparation spécifique pour améliorer ton endurance et te préparer aux formats compétition.</p>
     </div>
 
     <div class="card">
       <h3>Coaching individuel</h3>
-      <p>Accompagnement personnalisé selon tes objectifs.</p>
+      <p>Un accompagnement personnalisé pour atteindre tes objectifs plus rapidement et plus proprement.</p>
     </div>
 
     <div class="card">
       <h3>Recovery</h3>
-      <p>Sauna, bain froid et récupération pour performer durablement.</p>
+      <p>Sauna, bain froid, bottes de récupération et outils dédiés pour performer durablement.</p>
     </div>
 
+    <div class="card">
+      <h3>Cours spécialisés</h3>
+      <p>Haltérophilie, gymnastique, cardio et course à pied pour améliorer ta technique.</p>
+    </div>
+
+    <div class="card">
+      <h3>Événements</h3>
+      <p>Compétitions internes, stages, week-ends de préparation et challenges communautaires.</p>
+    </div>
   </div>
 </section>
 
 <section class="offers" id="offres">
-
-  <h2>Abonnements</h2>
+  <div class="center">
+    <p class="gold">Abonnements</p>
+    <h2>Choisis ton rythme</h2>
+  </div>
 
   <div class="cards">
-
     <div class="offer">
       <h3>1 séance / semaine</h3>
       <div class="price">55€</div>
-      <p>Parfait pour commencer.</p>
+      <p>Pour commencer sans pression.</p>
     </div>
 
     <div class="offer">
       <h3>2 séances / semaine</h3>
       <div class="price">70€</div>
-      <p>La formule régulière.</p>
+      <p>Le bon rythme pour progresser.</p>
     </div>
 
     <div class="offer">
       <h3>3 séances / semaine</h3>
       <div class="price">85€</div>
-      <p>Pour progresser rapidement.</p>
+      <p>Pour des résultats visibles.</p>
     </div>
 
-    <div class="offer">
+    <div class="offer featured">
       <h3>Illimité</h3>
       <div class="price">95€</div>
       <p>Accès complet à la box.</p>
     </div>
-
   </div>
-
 </section>
 
-<section>
+<section class="cta">
+  <div class="center">
+    <h2>Rejoins la communauté Volt</h2>
+    <p>
+      Ici, on ne vient pas juste s’entraîner. On vient progresser, se soutenir
+      et créer des liens qui vont bien au-delà de la salle.
+    </p>
+    <br>
+    <a href="#contact" class="btn">Réserver un essai gratuit</a>
+  </div>
+</section>
 
-  <h2>Contact</h2>
-
-  <p>
-    📍 52 rue du Pré de Brou, 01000 Bourg-en-Bresse
-  </p>
-
-  <p>
-    📧 bosco.lorenzo01@gmail.com
-  </p>
-
+<section id="contact">
+  <div class="contact-box">
+    <h2>Contact</h2>
+    <p>📍 52 rue du Pré de Brou, 01000 Bourg-en-Bresse</p>
+    <p>📞 06 03 93 58 00</p>
+    <p>📧 bosco.lorenzo01@gmail.com</p>
+  </div>
 </section>
 
 <footer>
-  © 2026 CrossFit Volt
+  © 2026 CrossFit Volt - CrossFit & Hyrox à Bourg-en-Bresse
 </footer>
 
 </body>
